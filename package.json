@@ -4,7 +4,7 @@
   "description": "npm package for i18next",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "MIT",
@@ -19,7 +19,7 @@
       "js"
     ],
     "transform": {
-      "\\.(ts|tsx)$": "<rootDir>/../../node_modules/ts-jest/preprocessor.js"
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "/__tests__/.*test*\\.(ts|tsx|js)$"
   },
