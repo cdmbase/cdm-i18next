@@ -10,30 +10,32 @@ import { Options } from './interface';
 export class Translator {
     private locale: string = 'en';
     private instance;
-    private options: Options;
     private isPseudo: boolean = false;
     private resolvedLanguage: string = null;
 
-    constructor(localPath?: string) {
+    constructor(private options?: Options) {
         let resources;
-        if (!localPath) {
+        if (options && options.localPath) {
+            let resolvedFile = this.resolveLanguage(options.localPath);
+            console.log(resolvedFile);
             resources = {
                 en: {
-                    translation: {
-                        "key": "Hello World",
-                    }
+                    translation: JSON.parse(fs.readFileSync(resolvedFile).toString())
                 }
-            };
+            }
         } else {
-            let resolvedFile = this.resolveLanguage(localPath);
-            console.log(resolvedFile);
-            resources = JSON.parse(fs.readFileSync(resolvedFile).toString())
-            console.log(resources);
-
+            resources = {
+                // en: {
+                //     translation: {
+                //         "key": "Hello000 World",
+                //     }
+                // }
+            };
         }
-        this.instance = i18next
+        this.instance = i18next.createInstance();
+        this.instance
             .use(nls.processor)
-            .createInstance({
+            .init({
                 overloadTranslationOptionHandler: nls.overloadTranslationOptionHandler,
                 lng: 'en',
                 debug: true,

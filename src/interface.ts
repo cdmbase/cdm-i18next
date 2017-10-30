@@ -2,6 +2,7 @@
 export interface Options {
     locale?: string;
     cacheLanguageResolution?: boolean;
+    localPath?: string;
 }
 
 export interface LocalizeInfo {
