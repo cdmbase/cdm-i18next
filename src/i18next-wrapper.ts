@@ -15,6 +15,7 @@ export class Translator {
 
     constructor(private options?: Options) {
         let resources;
+        this.locale = options && options.locale;
         if (options && options.localPath) {
             let resolvedFile = this.resolveLanguage(options.localPath);
             console.log(resolvedFile);
@@ -39,7 +40,7 @@ export class Translator {
             .use(nls.processor)
             .init({
                 overloadTranslationOptionHandler: nls.overloadTranslationOptionHandler,
-                lng: options.locale,
+                lng: this.locale,
                 debug: true,
                 resources
             });
