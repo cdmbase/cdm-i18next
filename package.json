@@ -24,10 +24,12 @@
     "testRegex": "/__tests__/.*test*\\.(ts|tsx|js)$"
   },
   "dependencies": {
-    "i18next": "^9.0.0"
+    "i18next": "^10.0.5"
   },
   "devDependencies": {
+    "@types/i18next": "^8.4.2",
     "@types/jest": "^20.0.8",
+    "@types/node": "^8.0.47",
     "jest": "^21.0.1",
     "ts-jest": "^21.0.0",
     "typescript": "^2.5.2"

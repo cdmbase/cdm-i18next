@@ -1,4 +1,4 @@
-
+import * as i18next from 'i18next';
 
 export const nls = {
     overloadTranslationOptionHandler: function(args) {
