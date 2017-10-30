@@ -23,7 +23,7 @@ describe('Localize', () => {
     // });
 
     it('External Data German flat', () => {
-        let localize: any = new Translator({ locale: 'en', localPath: path.join(__dirname, '..', '..', 'src', '__tests__', 'feature') });
+        let localize: any = new Translator({ locale: 'de', localPath: path.join(__dirname, '..', '..', 'src', '__tests__', 'feature') });
         expect(localize.translate('json.schemas.desc', "Associate schemas to JSON files in the current project")).toEqual('Schemas zu JSON-Dateien im aktuellen Projekt zuordnen');
     });
 })

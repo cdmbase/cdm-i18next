@@ -18,9 +18,11 @@ export class Translator {
         if (options && options.localPath) {
             let resolvedFile = this.resolveLanguage(options.localPath);
             console.log(resolvedFile);
+            const data = JSON.parse(fs.readFileSync(resolvedFile).toString());
+            console.log(data);
             resources = {
-                en: {
-                    translation: JSON.parse(fs.readFileSync(resolvedFile).toString())
+                de: {
+                    translation: data
                 }
             }
         } else {
@@ -37,7 +39,7 @@ export class Translator {
             .use(nls.processor)
             .init({
                 overloadTranslationOptionHandler: nls.overloadTranslationOptionHandler,
-                lng: 'en',
+                lng: options.locale,
                 debug: true,
                 resources
             });
